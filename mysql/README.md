@@ -31,6 +31,8 @@ $ sudo systemctl stop mysql
 
 `Permission`
 ```bash
+$ sudo mkdir -p /var/run/mysqld
+$ sudo chown mysql:mysql /var/run/mysqld
 $ sudo chown -R mysql:mysql /var/log/mysql
 $ sudo chmod 755 /var/log/mysql
 ```
