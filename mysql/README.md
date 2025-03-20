@@ -34,6 +34,12 @@ $ sudo mysql
 $ sudo mysql -u root -p
 ```
 
+`Remove`
+```bash
+$ sudo apt purge mysql-server mysql-client mysql-common mysql-server-core-* mysql-client-core-*
+$ sudo apt autoremove
+```
+
 ### Configuration
 
 `/etc/mysql/mysql.conf.d/mysqld.cnf`
