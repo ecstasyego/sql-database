@@ -61,9 +61,17 @@ $ sudo service mysql start
 ```
 
 
-## Query
+### Query
 ```sql
 SHOW DATABASES;
 USE [DATABASE];
 SHOW TABLES;
+```
+
+
+## Windows
+
+`WIN + R`
+```cmd
+services.msc
 ```
