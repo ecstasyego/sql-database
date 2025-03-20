@@ -28,9 +28,11 @@ $ sudo systemctl restart mysql
 $ sudo systemctl stop mysql
 ```
 
-`Access`
+`Access`  
+`PASSWORD`:`sudo cat /etc/mysql/debian.cnf`
 ```bash
 $ sudo mysql
+$ sudo mysql -u root
 $ sudo mysql -u root -p
 ```
 
