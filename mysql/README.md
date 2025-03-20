@@ -25,6 +25,7 @@ $ sudo service mysql stop
 $ sudo systemctl enable mysql
 $ sudo systemctl status mysql
 $ sudo systemctl restart mysql
+$ sudo systemctl stop mysql
 ```
 
 `Access`
