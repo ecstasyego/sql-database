@@ -1,3 +1,5 @@
+# Authentication
+
 `tables`
 ```
 mysql.user
