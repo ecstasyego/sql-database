@@ -15,6 +15,8 @@ mysql.roles_mapping
 
 ```mysql
 SELECT user, host FROM mysql.user;
+CREATE USER 'testuser'@'localhost' IDENTIFIED BY 'password';
+ALTER USER 'testuser'@'localhost' IDENTIFIED BY 'newpassword';
 ```
 
 
