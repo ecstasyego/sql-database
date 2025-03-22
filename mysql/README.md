@@ -48,6 +48,7 @@ $ sudo mysql -u root -p
 
 `Remove`
 ```bash
+$ sudo systemctl stop mysql
 $ sudo apt purge mysql-server mysql-client mysql-common mysql-server-core-* mysql-client-core-*
 $ sudo apt autoremove -y
 $ sudo apt autoclean
