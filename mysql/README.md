@@ -29,13 +29,12 @@ $ sudo systemctl restart mysql
 $ sudo systemctl stop mysql
 ```
 
-`Password Initialization`
+`Root Password Initialization`
 ```bash
-$ sudo systemctl stop mysql
-$ sudo mkdir -p /var/run/mysqld
-$ sudo chown mysql:mysql /var/run/mysqld
-$ sudo mysqld_safe --skip-grant-tables &
-$ mysql -u root
+$ sudo mysql -u root
+mysql> ALTER USER 'root'@'localhost' IDENTIFIED WITH mysql_native_password BY 'NEW_PASSWORD';
+mysql> FLUSH PRIVILEGES;
+mysql> EXIT;
 ```
 
 `Access`  
