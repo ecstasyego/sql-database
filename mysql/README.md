@@ -50,6 +50,7 @@ $ sudo mysql -u root -p
 ```bash
 $ sudo apt purge mysql-server mysql-client mysql-common mysql-server-core-* mysql-client-core-*
 $ sudo apt autoremove
+$ sudo rm -rf /etc/mysql /var/lib/mysql /var/log/mysql*
 ```
 
 ### Configuration
