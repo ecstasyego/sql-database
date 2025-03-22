@@ -40,7 +40,13 @@ $ sudo mysql -u root -p
 ```mysql
 ALTER USER 'root'@'localhost' IDENTIFIED WITH mysql_native_password BY 'NEW_PASSWORD';
 FLUSH PRIVILEGES;
-EXIT;
+```
+
+`Account Privileges`
+```
+CREATE USER 'root'@'127.0.0.1' IDENTIFIED BY 'PASSWORD';
+GRANT ALL PRIVILEGES ON *.* TO 'root'@'127.0.0.1' WITH GRANT OPTION;
+FLUSH PRIVILEGES;
 ```
 
 `IP/PORT`
