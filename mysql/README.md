@@ -29,21 +29,26 @@ $ sudo systemctl restart mysql
 $ sudo systemctl stop mysql
 ```
 
-`Root Password Initialization`
-```bash
-$ sudo mysql -u root
-mysql> ALTER USER 'root'@'localhost' IDENTIFIED WITH mysql_native_password BY 'NEW_PASSWORD';
-mysql> FLUSH PRIVILEGES;
-mysql> EXIT;
-```
-
 `Access`  
-`PASSWORD`:`sudo cat /etc/mysql/debian.cnf`
 ```bash
 $ sudo mysql
 $ sudo mysql -u root
 $ sudo mysql -u root -p
 ```
+
+`Root Password Initialization`
+```mysql
+ALTER USER 'root'@'localhost' IDENTIFIED WITH mysql_native_password BY 'NEW_PASSWORD';
+FLUSH PRIVILEGES;
+EXIT;
+```
+
+`IP/PORT`
+```mysql
+SHOW VARIABLES LIKE 'bind_address';
+SHOW VARIABLES LIKE 'port';
+```
+
 
 `Remove`
 ```bash
