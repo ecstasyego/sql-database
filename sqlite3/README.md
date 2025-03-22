@@ -29,7 +29,8 @@ sqlite3> .quit
 sqlite3> DROP TABLE database_name.table_name;
 sqlite3> ALTER TABLE database_name.table_name RENAME TO new_table_name;
 sqlite3> ALTER TABLE database_name.table_name ADD COLUMN column_def...;
-sqlite3> INSERT INTO TABLE_NAME [(column1, column2, column3,...columnN)] VALUES (value1, value2, value3,...valueN);
+sqlite3> INSERT INTO TABLE_NAME VALUES (value1, value2, value3,...valueN);
+sqlite3> INSERT INTO TABLE_NAME (column1, column2, column3, ... , columnN) VALUES (value1, value2, value3,...valueN);
 sqlite3> SELECT column1, column2, columnN FROM table_name;
 ```
 
