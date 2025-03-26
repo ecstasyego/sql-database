@@ -62,7 +62,7 @@ import sqlite3
 import numpy as np
 import pandas as pd
 
-conn = sqlite3.connect(':memory:')
+conn = sqlite3.connect(':memory:') # example.db
 pd.DataFrame(data=np.random.normal(size=(30, 5)), columns=list('ABCDE')).to_sql('RANDOM_TABLE', conn, index=False)
 pd.read_sql("""select * from RANDOM_TABLE""", conn)
 conn.close()
