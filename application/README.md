@@ -91,6 +91,7 @@ if __name__ == '__main__':
 ## Visdom
 ```bash
 $ python -m visdom.server
+$ python -m visdom.server -port 8097
 ```
 ```python
 import numpy as np
