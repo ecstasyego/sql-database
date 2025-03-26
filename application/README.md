@@ -111,31 +111,39 @@ $ pip install mysql-connector-python pymysql sqlalchemy
 `mysql.connector`
 ```python
 import mysql.connector
-import numpy as np
-import pandas as pd
 
-conn = mysql.connector.connect(
-    host="127.0.0.1",  # "localhost", "127.0.0.1"
-    user="root",
-    password="PASSWORD",
-    database="example"
-)
+user = "root"        
+password = "PASSWORD"  
+host = "localhost" # "127.0.0.1"
+port = 3306          
 
-cursor = conn.cursor()
-cursor.execute("""
-    CREATE TABLE IF NOT EXISTS users (
-        id INT AUTO_INCREMENT PRIMARY KEY,
-        name VARCHAR(255),
-        age INT
+try:
+    conn = mysql.connector.connect(
+        host=host,
+        user=user,
+        password=password,
+        port=port
     )
-""")
-cursor.execute("INSERT INTO users (name, age) VALUES (%s, %s)", ("Alice", 25))
-cursor.execute("INSERT INTO users (name, age) VALUES (%s, %s)", ("Bob", 30))
-conn.commit()
-
-cursor.close()
-conn.close()
-```
+    print("Connection Success")
+    
+    cursor = conn.cursor()
+    cursor.execute("""CREATE DATABASE IF NOT EXISTS example;""")
+    cursor.execute("""USE example;""")
+    cursor.execute("""
+        CREATE TABLE IF NOT EXISTS users (
+            id INT AUTO_INCREMENT PRIMARY KEY,
+            name VARCHAR(255),
+            age INT
+        )
+    """)
+    cursor.execute("INSERT INTO users (name, age) VALUES (%s, %s)", ("Alice", 25))
+    cursor.execute("INSERT INTO users (name, age) VALUES (%s, %s)", ("Bob", 30))
+    conn.commit()
+    
+    cursor.close()
+    conn.close()
+except mysql.connector.Error as e:
+    print(f"Connection Fail: {e}")```
 
 `pymysql`
 ```python
