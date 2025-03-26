@@ -98,6 +98,34 @@ import numpy as np
 import pandas as pd
 
 conn = sqlite3.connect(':memory:') # example.db
+cursor = conn.cursor()
+
+# INSERT
+cursor.execute("""
+    CREATE TABLE users (
+        id INTEGER PRIMARY KEY AUTOINCREMENT,
+        name TEXT,
+        age INTEGER
+    )
+""")
+cursor.execute("INSERT INTO users (name, age) VALUES (?, ?)", ("Alice", 25))
+cursor.execute("INSERT INTO users (name, age) VALUES (?, ?)", ("Bob", 30))
+conn.commit()
+
+# SELECT
+cursor.execute("SELECT * FROM users")
+for row in cursor.fetchall():
+    print(row)
+
+cursor.close()
+conn.close()
+```
+```python
+import sqlite3
+import numpy as np
+import pandas as pd
+
+conn = sqlite3.connect(':memory:') # example.db
 pd.DataFrame(data=np.random.normal(size=(30, 5)), columns=list('ABCDE')).to_sql('RANDOM_TABLE', conn, index=False)
 pd.read_sql("""select * from RANDOM_TABLE""", conn)
 conn.close()
