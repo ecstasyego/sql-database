@@ -105,8 +105,10 @@ conn.close()
 
 ### mysql
 ```bash
-$ pip install mysql-connector-python
+$ pip install mysql-connector-python pymysql sqlalchemy
 ```
+
+`mysql.connector`
 ```python
 import mysql.connector
 import numpy as np
@@ -134,7 +136,13 @@ conn.commit()
 cursor.close()
 conn.close()
 ```
+
+`pymysql`
 ```python
 
 ```
 
+
+`sqlalchemy`
+```python
+```
