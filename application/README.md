@@ -172,7 +172,11 @@ try:
     cursor.execute("INSERT INTO users (name, age) VALUES (%s, %s)", ("Alice", 25))
     cursor.execute("INSERT INTO users (name, age) VALUES (%s, %s)", ("Bob", 30))
     conn.commit()
-    
+
+    cursor.execute("SELECT * FROM users")
+    for row in cursor.fetchall():
+        print(row)
+
     cursor.close()
     conn.close()
 
@@ -210,6 +214,11 @@ try:
     """)
     cursor.execute("INSERT INTO users (name, age) VALUES (%s, %s)", ("Alice", 25))
     cursor.execute("INSERT INTO users (name, age) VALUES (%s, %s)", ("Bob", 30))
+    conn.commit()
+
+    cursor.execute("SELECT * FROM users")
+    for row in cursor.fetchall():
+        print(row)
 
     cursor.close()
     conn.close()
