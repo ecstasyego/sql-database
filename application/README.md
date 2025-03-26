@@ -171,6 +171,8 @@ vis.scatter(
         markersize = 5,
     )
 )
+
+vis.close()
 ```
 
 ## jupyter
