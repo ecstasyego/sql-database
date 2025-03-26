@@ -186,6 +186,28 @@ except pymysql.MySQLError as e:
 ```
 
 
+
 `sqlalchemy`
 ```python
+import numpy as np
+import pandas as pd
+from sqlalchemy import create_engine
+
+user = "root"        
+password = "PASSWORD"  
+host = "localhost" # "127.0.0.1"
+port = 3306          
+dbname = "example"
+
+engine = create_engine(f"mysql+pymysql://{user}:{password}@{host}:{port}/{dbname}")
+
+try:
+    with engine.connect() as conn:
+        print("Connection Success")
+        
+        pd.DataFrame(data=np.random.normal(size=(30, 5)), columns=list('ABCDE')).to_sql(name="RANDOM_TABLE", con=engine, if_exists=["replace", "append"][0], index=False)
+        pd.read_sql("""select * from RANDOM_TABLE""", engine)
+
+except Exception as e:
+    print(f"Connection Fail: {e}")
 ```
