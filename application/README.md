@@ -139,7 +139,39 @@ conn.close()
 
 `pymysql`
 ```python
+import pymysql
 
+user = "root"        
+password = "PASSWORD"  
+host = "localhost" # "127.0.0.1"
+port = 3306          
+
+try:
+    conn = pymysql.connect(
+        host=host,
+        user=user,
+        password=password,
+        port=port
+    )
+    print("Connection Success")
+
+    cursor = conn.cursor()
+    cursor.execute("""CREATE DATABASE IF NOT EXISTS example;""")
+    cursor.execute("""USE example;""")
+    cursor.execute("""
+        CREATE TABLE IF NOT EXISTS users (
+            id INT AUTO_INCREMENT PRIMARY KEY,
+            name VARCHAR(255),
+            age INT
+        )
+    """)
+    cursor.execute("INSERT INTO users (name, age) VALUES (%s, %s)", ("Alice", 25))
+    cursor.execute("INSERT INTO users (name, age) VALUES (%s, %s)", ("Bob", 30))
+
+    cursor.close()
+    conn.close()
+except pymysql.MySQLError as e:
+    print(f"Connection Fail: {e}")
 ```
 
 
