@@ -88,7 +88,7 @@ if __name__ == '__main__':
 ```
 
 ## jupyter
-`sqlite3`
+### sqlite3
 ```bash
 $ pip install sqlite3
 ```
@@ -103,7 +103,7 @@ pd.read_sql("""select * from RANDOM_TABLE""", conn)
 conn.close()
 ```
 
-`mysql`
+### mysql
 ```bash
 $ pip install mysql-connector-python
 ```
