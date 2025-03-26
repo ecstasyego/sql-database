@@ -89,6 +89,9 @@ if __name__ == '__main__':
 
 ## jupyter
 `sqlite3`
+```bash
+$ pip install sqlite3
+```
 ```python
 import sqlite3
 import numpy as np
@@ -101,6 +104,37 @@ conn.close()
 ```
 
 `mysql`
+```bash
+$ pip install mysql-connector-python
+```
 ```python
+import mysql.connector
+import numpy as np
+import pandas as pd
+
+conn = mysql.connector.connect(
+    host="127.0.0.1",  # "localhost", "127.0.0.1"
+    user="root",
+    password="PASSWORD",
+    database="example"
+)
+
+cursor = conn.cursor()
+cursor.execute("""
+    CREATE TABLE IF NOT EXISTS users (
+        id INT AUTO_INCREMENT PRIMARY KEY,
+        name VARCHAR(255),
+        age INT
+    )
+""")
+cursor.execute("INSERT INTO users (name, age) VALUES (%s, %s)", ("Alice", 25))
+cursor.execute("INSERT INTO users (name, age) VALUES (%s, %s)", ("Bob", 30))
+conn.commit()
+
+cursor.close()
+conn.close()
+```
+```python
+
 ```
 
