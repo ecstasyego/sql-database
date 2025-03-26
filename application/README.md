@@ -142,6 +142,7 @@ try:
     
     cursor.close()
     conn.close()
+
 except mysql.connector.Error as e:
     print(f"Connection Fail: {e}")
 ```
@@ -179,6 +180,7 @@ try:
 
     cursor.close()
     conn.close()
+
 except pymysql.MySQLError as e:
     print(f"Connection Fail: {e}")
 ```
