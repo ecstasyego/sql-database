@@ -31,12 +31,30 @@ class Table(db.Model):
     def serialize(self):
         return {"id": self.id, "username": self.username, "email": self.email}
 
+
 with app.app_context():
     db.create_all()
+
+    # DELETE
     db.session.query(Table).delete()
+    db.session.commit()
+
+    # INSERT
+    db.session.add( Table(username='Alice', email='alice@example.com') )
+    db.session.commit()
+
+    # UPDATE
+    user = Table.query.filter_by(username='Alice').first()
+    user.email = 'alice_new@example.com'
+    db.session.commit()
+
+    # SELECT
+    users = Table.query.all()
+    user = Table.query.filter_by(username='Alice').first()
+    print(user.serialize())
 
 @app.route('/', methods=['POST'])
-def insert():
+def query():
     data = request.json
     new_user = Table(username=data['username'], email=data['email'])
     db.session.add(new_user)
