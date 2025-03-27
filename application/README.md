@@ -53,14 +53,6 @@ with app.app_context():
     user = Table.query.filter_by(username='Alice').first()
     print(user.serialize())
 
-@app.route('/', methods=['POST'])
-def query():
-    data = request.json
-    new_user = Table(username=data['username'], email=data['email'])
-    db.session.add(new_user)
-    db.session.commit()
-    return jsonify(new_user.serialize()), 201
-
 @app.route('/', methods=['GET'])
 def index():
     users = Table.query.all()
