@@ -9,7 +9,47 @@ $ pip install Flask
 $ pip install Flask-SQLAlchemy
 ```
 ```python
+import os
+from flask import Flask, request, jsonify
+from flask_sqlalchemy import SQLAlchemy
 
+BASE_DIR = os.path.join(os.path.abspath(os.path.dirname(__file__)), 'data')
+DB_PATH = os.path.join(BASE_DIR, 'database.db')
+os.makedirs(BASE_DIR, exist_ok=True)
+
+app = Flask(__name__)
+app.config['SQLALCHEMY_DATABASE_URI'] = f'sqlite:///{DB_PATH}'
+app.config['SQLALCHEMY_TRACK_MODIFICATIONS'] = False
+
+db = SQLAlchemy(app)
+
+class Table(db.Model):
+    id = db.Column(db.Integer, primary_key=True)
+    username = db.Column(db.String(80), unique=True, nullable=False)
+    email = db.Column(db.String(120), unique=True, nullable=False)
+
+    def serialize(self):
+        return {"id": self.id, "username": self.username, "email": self.email}
+
+with app.app_context():
+    db.create_all()
+    db.session.query(Table).delete()
+
+@app.route('/', methods=['POST'])
+def insert():
+    data = request.json
+    new_user = Table(username=data['username'], email=data['email'])
+    db.session.add(new_user)
+    db.session.commit()
+    return jsonify(new_user.serialize()), 201
+
+@app.route('/', methods=['GET'])
+def index():
+    users = Table.query.all()
+    return jsonify([user.serialize() for user in users])
+
+if __name__ == '__main__':
+    app.run(debug=True, host='127.0.0.1', port=5000)
 ```
 
 
