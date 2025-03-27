@@ -179,53 +179,6 @@ vis.text(
     ).to_html()
 )
 
-# images
-vis.images(np.random.normal(size=(300,500)), opts=dict(title='gray image'))
-vis.images(np.random.normal(size=(300,500)), opts=dict(title='gray image', caption='description'))
-vis.images(np.random.normal(size=(3, 300, 500)), opts=dict(title='color image'))
-vis.images(np.random.normal(size=(3, 300, 500)), opts=dict(title='color image', caption='description'))
-vis.images(np.random.normal(size=(5, 3, 300, 500)), opts=dict(title='images'))
-vis.images(np.random.normal(size=(5, 3, 300, 500)), opts=dict(title='images', caption='description'))
-
-# pie
-vis.pie(np.array([10, 20, 30, 40, 50]), opts=dict(title='pie', legend=['legend1', 'legend2', 'legend3', 'legend4', 'legend5'], showlegend=True))
-
-# bar
-vis.bar(np.array([10, 20, 30, 40, 50]), opts=dict(title='bar', rownames=['label1', 'label2', 'label3', 'label4', 'label5'])) # 1d bar
-vis.bar(np.array([10, 20, 30, 40, 50]), opts=dict(title='bar', legend=['legend1', 'legend2', 'legend3', 'legend4', 'legend5'], showlegend=True)) # 1d bar
-vis.bar(np.random.randint(0, 100, size=(20,2)), opts=dict(title='bar')) # 2d bar
-vis.bar(np.random.randint(0, 100, size=(20,2)), opts=dict(title='bar', legend=['legend1', 'legend2'])) # 2d bar
-vis.bar(np.random.randint(0, 100, size=(20,2)), opts=dict(title='bar', legend=['legend1', 'legend2'], stacked=True)) # 2d bar
-
-
-# line
-vis.line(Y = np.random.normal(size=(10,2)), X = np.arange(10), opts=dict(title='line', legend=['legend1', 'legend2'], showlegend=True))
-
-# scatter
-vis.scatter(
-    X = np.random.normal(size=(10,2)), 
-    opts=dict(
-        title='scatter', legend=['legend1', 'legend2'], showlegend=True,
-        markersize=5
-    )
-)
-vis.scatter(
-    X = np.random.normal(size=(100, 2)), # 2d scatter 
-    Y = np.random.randint(1, 6, size=(100,)),  # label: 1, 2, 3, 4, 5
-    opts=dict(
-        title='scatter', legend=['legend1', 'legend2', 'legend3', 'legend4', 'legend5'], showlegend=True,
-        markersize = 5,
-    )
-)
-vis.scatter(
-    X = np.random.normal(size=(100, 3)), # 3d scatter
-    Y = np.random.randint(1, 6, size=(100,)),  # label: 1, 2, 3, 4, 5
-    opts=dict(
-        title='scatter', legend=['legend1', 'legend2', 'legend3', 'legend4', 'legend5'], showlegend=True,
-        markersize = 5,
-    )
-)
-
 vis.close()
 ```
 
