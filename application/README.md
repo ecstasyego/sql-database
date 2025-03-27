@@ -122,6 +122,10 @@ if __name__ == "__main__":
 ```
 
 ## Dash
+```bash
+$ pip install dash
+$ pip install dash_table
+```
 ```python
 import dash
 import dash_table
