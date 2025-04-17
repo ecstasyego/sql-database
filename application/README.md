@@ -64,7 +64,13 @@ if __name__ == '__main__':
 
 
 ## fastapi
+```bash
+$ pip install fastapi
+$ pip install uvicorn
+```
 ```python
+```
+```bash
 ```
 
 ## pyqt5
