@@ -9,6 +9,7 @@
 $ pip install Flask
 $ pip install Flask-SQLAlchemy
 ```
+`Script`
 ```python
 import os
 from flask import Flask, request, jsonify
@@ -71,13 +72,16 @@ $ pip install fastapi
 $ pip install uvicorn
 $ pip install sqlalchemy
 ```
+`Script`
 ```python
 ```
+`Execution`
 ```bash
 $ uvicorn main:app --reload
 ```
 
 ## pyqt5
+`Script`
 ```python
 from PyQt5 import QtCore, QtGui, QtWidgets, QtSql
 
@@ -141,6 +145,7 @@ if __name__ == "__main__":
 $ pip install dash
 $ pip install dash_table
 ```
+`Script`
 ```python
 import dash
 import dash_table
@@ -173,6 +178,7 @@ if __name__ == '__main__':
 
 
 ## Visdom
+`Script`
 ```python
 import numpy as np
 import pandas as pd
@@ -195,6 +201,7 @@ vis.text(
 
 vis.close()
 ```
+`Execution`
 ```bash
 $ python -m visdom.server
 $ python -m visdom.server -port 8097
