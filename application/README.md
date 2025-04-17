@@ -72,7 +72,7 @@ $ pip install fastapi
 $ pip install uvicorn
 $ pip install sqlalchemy
 ```
-`Script`
+`Script[main.py]`
 ```python
 ```
 `Execution`
