@@ -214,6 +214,7 @@ $ python -m visdom.server --hostname localhost -port 8097
 ```bash
 $ pip install sqlite3
 ```
+`Script`
 ```python
 import sqlite3
 import numpy as np
@@ -242,6 +243,7 @@ for row in cursor.fetchall():
 cursor.close()
 conn.close()
 ```
+`Script`
 ```python
 import sqlite3
 import numpy as np
@@ -264,7 +266,7 @@ conn.close()
 $ pip install mysql-connector-python pymysql sqlalchemy
 ```
 
-`mysql.connector`
+`Script: mysql.connector`
 ```python
 import mysql.connector
 
@@ -307,7 +309,7 @@ except mysql.connector.Error as e:
     print(f"Connection Fail: {e}")
 ```
 
-`pymysql`
+`Script: pymysql`
 ```python
 import pymysql
 
@@ -352,7 +354,7 @@ except pymysql.MySQLError as e:
 
 
 
-`sqlalchemy`
+`Script: sqlalchemy`
 ```python
 import numpy as np
 import pandas as pd
