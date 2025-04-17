@@ -4,6 +4,7 @@
 ```
 
 ## flask
+`Installation`
 ```bash
 $ pip install Flask
 $ pip install Flask-SQLAlchemy
@@ -64,9 +65,11 @@ if __name__ == '__main__':
 
 
 ## fastapi
+`Installation`
 ```bash
 $ pip install fastapi
 $ pip install uvicorn
+$ pip install sqlalchemy
 ```
 ```python
 ```
@@ -133,6 +136,7 @@ if __name__ == "__main__":
 ```
 
 ## Dash
+`Installation`
 ```bash
 $ pip install dash
 $ pip install dash_table
@@ -169,11 +173,6 @@ if __name__ == '__main__':
 
 
 ## Visdom
-```bash
-$ python -m visdom.server
-$ python -m visdom.server -port 8097
-$ python -m visdom.server --hostname localhost -port 8097
-```
 ```python
 import numpy as np
 import pandas as pd
@@ -196,9 +195,15 @@ vis.text(
 
 vis.close()
 ```
+```bash
+$ python -m visdom.server
+$ python -m visdom.server -port 8097
+$ python -m visdom.server --hostname localhost -port 8097
+```
 
 ## jupyter
 ### sqlite3
+`Installation`
 ```bash
 $ pip install sqlite3
 ```
@@ -247,6 +252,7 @@ conn.close()
 ```
 
 ### mysql
+`Installation`
 ```bash
 $ pip install mysql-connector-python pymysql sqlalchemy
 ```
