@@ -71,6 +71,7 @@ $ pip install uvicorn
 ```python
 ```
 ```bash
+$ uvicorn main:app --reload
 ```
 
 ## pyqt5
