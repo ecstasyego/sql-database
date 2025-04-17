@@ -63,6 +63,10 @@ if __name__ == '__main__':
 ```
 
 
+## fastapi
+```python
+```
+
 ## pyqt5
 ```python
 from PyQt5 import QtCore, QtGui, QtWidgets, QtSql
