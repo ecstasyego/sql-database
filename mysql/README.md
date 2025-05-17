@@ -95,10 +95,8 @@ $ sudo service mysql start
 
 ### Firewall: ufw
 ```bash
-$ sudo ufw allow ssh
-$ sudo ufw enable
-$ sudo ufw default deny incoming
-$ sudo ufw default allow outgoing
+$ docker network inspect bridge # "IPAM"/"Config"/"Subnet": 172.17.0.0/16
+$ ufw allow from 172.17.0.0/16 to any port 3306
 ```
 
 ### Query
