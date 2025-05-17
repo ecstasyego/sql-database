@@ -94,6 +94,12 @@ $ sudo service mysql start
 
 
 ### Firewall: ufw
+```bash
+$ sudo ufw allow ssh
+$ sudo ufw enable
+$ sudo ufw default deny incoming
+$ sudo ufw default allow outgoing
+```
 
 ### Query
 ```sql
