@@ -115,6 +115,6 @@ services.msc
 
 ```bash
 $ apt update
-$ apt install mysql-client
+$ apt install default-mysql-client
 ```
 
