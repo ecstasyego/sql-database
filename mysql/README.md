@@ -106,3 +106,15 @@ SHOW TABLES;
 ```cmd
 services.msc
 ```
+
+<br><br><br>
+
+---
+
+# Client
+
+```bash
+$ apt update
+$ apt install mysql-client
+```
+
