@@ -70,6 +70,7 @@ $ sudo rm -rf /etc/mysql /var/lib/mysql /var/log/mysql* /var/run/mysqld /usr/lib
 `/etc/mysql/mysql.conf.d/mysqld.cnf`
 ```bash
 [mysqld]
+bind-address = 0.0.0.0
 socket  = /var/run/mysqld/mysqld.sock
 ```
 `/tmp/mysql.sock`
@@ -92,13 +93,14 @@ $ sudo service mysql start
 ```
 
 
+### Firewall: ufw
+
 ### Query
 ```sql
 SHOW DATABASES;
 USE [DATABASE];
 SHOW TABLES;
 ```
-
 
 ## Windows
 
