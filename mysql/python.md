@@ -47,11 +47,11 @@ except pymysql.MySQLError as e:
 ```
 
 
-### SQLAlchemy: DataFrame
+### SQLAlchemy
 
 `SQLAlchemy`
 ```python
-from sqlalchemy import create_engine
+from sqlalchemy import create_engine, text
 
 user = "root"        
 password = "temppw"  
@@ -62,6 +62,14 @@ dbname = "testdb"
 try:
     engine = create_engine(f"mysql+pymysql://{user}:{password}@{host}:{port}/{dbname}")
     with engine.connect() as conn:
+        conn.execute(text("""
+            CREATE TABLE IF NOT EXISTS testtable (
+                id INT AUTO_INCREMENT PRIMARY KEY,
+                name VARCHAR(100),
+                created_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP
+            )
+        """))
+
         print("Connection Success")
 except Exception as e:
     print(f"Connection Fail: {e}")
