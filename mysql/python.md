@@ -99,3 +99,29 @@ try:
 except Exception as e:
     print(f"Connection Fail: {e}")
 ```
+
+
+
+```python
+from sqlalchemy import create_engine, text
+import numpy as np
+import pandas as pd
+
+# DB INFO
+user = "root"        
+password = "temppw"  
+host = "localhost"   
+port = 3306          
+
+engine = create_engine(f"mysql+pymysql://{user}:{password}@{host}:{port}")
+with engine.connect() as conn:
+    dbname = "testenv"
+    conn.execute(text(f"CREATE DATABASE IF NOT EXISTS {dbname}"))
+
+subengine = create_engine(f"mysql+pymysql://{user}:{password}@{host}:{port}/{dbname}")
+with subengine.connect() as conn:
+    tblname = "sampletbl"
+    df = pd.DataFrame(data=np.random.normal(size=(30, 5)), columns=list('ABCDE'))
+    df.to_sql(name=tblname, con=subengine, if_exists=["replace", "append"][0], index=False)
+pd.read_sql(f"""SELECT * FROM {tblname}""", subengine)
+```
